@@ -1,0 +1,12 @@
+<h1><%= @appliance.name %></h1>
+
+<%= form_with model: @appliance, method: :put, local: true do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+  </div>
+  <%= f.submit :update %>
+<% end %>
+<div>
+  <%= link_to :top, root_path %>
+</div>

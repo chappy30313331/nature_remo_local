@@ -1,0 +1,9 @@
+<h1><%= @appliance.name %></h1>
+
+<div>
+  <%= link_to :edit, edit_appliance_path(@appliance) %>
+  <%= link_to :delete, appliance_path(@appliance), method: :delete %>
+</div>
+<div>
+  <%= link_to :top, root_path %>
+</div>
