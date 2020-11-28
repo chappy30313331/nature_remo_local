@@ -7,4 +7,14 @@ class SignalController < ApplicationController
       render json: { signal: 'Error' }
     end
   end
+
+  def transmit
+    button = Button.find(params[:button_id])
+    response = SendSignal.call(button.signal)
+    if response.code == 200
+      render json: { status: 'ok', message: response.to_s }
+    else
+      render json: { status: 'ng', message: 'Error' }
+    end
+  end
 end

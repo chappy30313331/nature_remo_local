@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     resources :buttons, except: %i[index], controller: 'appliances/buttons'
   end
   get 'signal', to: 'signal#read', format: :json
+  post 'signal', to: 'signal#transmit', format: :json
 end

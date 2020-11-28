@@ -1,3 +1,5 @@
+<%= javascript_pack_tag 'signal', 'data-turbolinks-track': 'reload' %>
+
 <h1><%= @appliance.name %></h1>
 
 <div>
@@ -10,7 +12,9 @@
   </tr>
   <% @appliance.buttons.each do |button| %>
     <tr>
-      <td><%= button.name %></td>
+      <td>
+        <%= button_tag button.name, type: :button, onclick: "sendSignal(#{button.id})" %>
+      </td>
     </tr>
   <% end %>
 </table>
