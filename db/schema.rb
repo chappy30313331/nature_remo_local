@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_27_165319) do
+ActiveRecord::Schema.define(version: 2020_11_28_064139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,4 +22,15 @@ ActiveRecord::Schema.define(version: 2020_11_27_165319) do
     t.index ["name"], name: "index_appliances_on_name", unique: true
   end
 
+  create_table "buttons", force: :cascade do |t|
+    t.bigint "appliance_id", null: false
+    t.string "name", null: false
+    t.text "signal", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["appliance_id", "name"], name: "index_buttons_on_appliance_id_and_name", unique: true
+    t.index ["appliance_id"], name: "index_buttons_on_appliance_id"
+  end
+
+  add_foreign_key "buttons", "appliances"
 end

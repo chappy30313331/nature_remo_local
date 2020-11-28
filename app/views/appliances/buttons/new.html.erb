@@ -1,0 +1,16 @@
+<h1>Buttons#new</h1>
+
+<%= form_with model: [@button.appliance, @button], method: :post, local: true do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+  </div>
+  <div>
+    <%= f.label :signal %>
+    <%= f.text_field :signal, size: 100, required: true %>
+  </div>
+  <%= f.submit :create %>
+<% end %>
+<div>
+  <%= link_to :back, @button.appliance %>
+</div>

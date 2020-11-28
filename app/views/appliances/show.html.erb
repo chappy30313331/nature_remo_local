@@ -1,6 +1,21 @@
 <h1><%= @appliance.name %></h1>
 
 <div>
+  <%= link_to :add_button, new_appliance_button_path(@appliance) %>
+</div>
+
+<table>
+  <tr>
+    <th>BUTTONS</th>
+  </tr>
+  <% @appliance.buttons.each do |button| %>
+    <tr>
+      <td><%= button.name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div>
   <%= link_to :edit, edit_appliance_path(@appliance) %>
   <%= link_to :delete, appliance_path(@appliance), method: :delete %>
 </div>
