@@ -1,3 +1,5 @@
+<%= javascript_pack_tag 'signal', 'data-turbolinks-track': 'reload' %>
+
 <h1>Buttons#new</h1>
 
 <%= form_with model: [@button.appliance, @button], method: :post, local: true do |f| %>
@@ -7,7 +9,8 @@
   </div>
   <div>
     <%= f.label :signal %>
-    <%= f.text_field :signal, size: 100, required: true %>
+    <%= f.text_field :signal, required: true, readonly: true %>
+    <%= button_tag :reload, type: :button, onclick: 'fetchSignal()' %>
   </div>
   <%= f.submit :create %>
 <% end %>
