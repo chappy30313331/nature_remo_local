@@ -1,19 +1,21 @@
 <%= javascript_pack_tag 'signal', 'data-turbolinks-track': 'reload' %>
 
-<h1>Buttons#new</h1>
+<h1>新しいボタン</h1>
+
+<p>Nature Remoにリモコンを近づけてボタンを押し、読込をクリックしてください</p>
 
 <%= form_with model: [@button.appliance, @button], method: :post, local: true do |f| %>
   <div>
-    <%= f.label :name %>
+    <%= f.label '名前' %>
     <%= f.text_field :name, required: true %>
   </div>
   <div>
-    <%= f.label :signal %>
+    <%= f.label '信号' %>
     <%= f.text_field :signal, required: true, readonly: true %>
-    <%= button_tag :reload, type: :button, onclick: 'fetchSignal()' %>
+    <%= button_tag '読込', type: :button, onclick: 'fetchSignal()' %>
   </div>
-  <%= f.submit :create %>
+  <%= f.submit '追加' %>
 <% end %>
 <div>
-  <%= link_to :back, @button.appliance %>
+  <%= link_to '戻る', @button.appliance %>
 </div>

@@ -2,27 +2,17 @@
 
 <h1><%= @appliance.name %></h1>
 
-<div>
-  <%= link_to :add_button, new_appliance_button_path(@appliance) %>
-</div>
-
-<table>
-  <tr>
-    <th>BUTTONS</th>
-  </tr>
-  <% @appliance.buttons.each do |button| %>
-    <tr>
-      <td>
-        <%= button_tag button.name, type: :button, onclick: "sendSignal(#{button.id})" %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<% @appliance.buttons.each do |button| %>
+  <%= button_tag button.name, type: :button, onclick: "sendSignal(#{button.id})" %>
+<% end %>
 
 <div>
-  <%= link_to :edit, edit_appliance_path(@appliance) %>
-  <%= link_to :delete, appliance_path(@appliance), method: :delete %>
+  <%= link_to 'ボタンを追加', new_appliance_button_path(@appliance) %>
 </div>
 <div>
-  <%= link_to :top, root_path %>
+  <%= link_to '編集', edit_appliance_path(@appliance) %>
+  <%= link_to '削除', appliance_path(@appliance), method: :delete %>
+</div>
+<div>
+  <%= link_to '戻る', root_path %>
 </div>

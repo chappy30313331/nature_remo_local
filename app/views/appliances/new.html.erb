@@ -1,12 +1,14 @@
-<h1>Appliances#new</h1>
+<h1>新しい家電</h1>
 
 <%= form_with model: @appliance, method: :post, local: true do |f| %>
   <div>
-    <%= f.label :name %>
+    <%= f.label '名前' %>
     <%= f.text_field :name, required: true %>
   </div>
-  <%= f.submit :create %>
+  <div>
+    <%= f.submit '追加' %>
+  </div>
 <% end %>
 <div>
-  <%= link_to :top, root_path %>
+  <%= link_to '戻る', root_path %>
 </div>
